@@ -1,24 +1,27 @@
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 export default function Layout() {
   return (
-    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
-      <header style={{ borderBottom: '2px solid #eee', paddingBottom: '15px', marginBottom: '30px' }}>
-        <nav style={{ display: 'flex', gap: '20px', fontSize: '1.1rem' }}>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/projects">Projects</Link>
-          <Link to="/contact">Contact</Link>
-        </nav>
+    <>
+      <header className="header animate-fade-in">
+        <div className="container">
+          <nav className="nav-links">
+            <NavLink to="/" end>Home</NavLink>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/projects">Projects</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
+          </nav>
+        </div>
       </header>
 
-      <main style={{ minHeight: '60vh' }}>
+      <main className="container" style={{ minHeight: '70vh' }}>
         <Outlet />
       </main>
 
-      <footer style={{ borderTop: '2px solid #eee', paddingTop: '15px', marginTop: '40px', textAlign: 'center', color: '#666' }}>
-        <p>&copy; {new Date().getFullYear()} Remigio. All rights reserved.</p>
+      <footer className="container animate-fade-in delay-3" style={{ borderTop: '1px solid var(--border-color)', paddingTop: '20px', marginTop: '60px', textAlign: 'center', color: 'var(--text-secondary)' }}>
+        <p>&copy; {new Date().getFullYear()} Ryland Jocef Remigio (Ry). All rights reserved.</p>
+        <p style={{ fontSize: '0.9rem', marginTop: '5px' }}>Built with React, Vite & Passion</p>
       </footer>
-    </div>
+    </>
   );
 }
